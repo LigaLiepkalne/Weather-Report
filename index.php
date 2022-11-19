@@ -9,7 +9,7 @@ $report = new WeatherData("bc888cebe0b19daf6284e6ed4bd3d141", readline("Please e
 $builder = new Builder();
 
 $builder->addRows([
-[
+  [
     'Temperature' => round($report->getData()["main"]["temp"])."° C",
     'Feels' => round($report->getData()["main"]["feels_like"])."° C",
     'Max' => round($report->getData()["main"]["temp_max"])."° C",
@@ -21,8 +21,7 @@ $builder->addRows([
   ]]);
 
 
-$builder->setTitle("WEATHER REPORT FOR " . strtoupper($report->getCity() .
-  " " . date('m/d/Y h:i:s a', time())));
+$builder->setTitle("WEATHER REPORT FOR " . strtoupper($report->getCity() . " " . date('m/d/Y h:i:s a', time())));
 
 echo $builder->renderTable();
 echo PHP_EOL;
