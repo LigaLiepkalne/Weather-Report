@@ -10,7 +10,6 @@ use AsciiTable\Builder;
 $apiClient = new ApiClient("bc888cebe0b19daf6284e6ed4bd3d141");
 $weatherReport = $apiClient->getCityWeather(readline("Please enter city name: "));
 
-
 $builder = new Builder();
 
 $builder->addRows([
