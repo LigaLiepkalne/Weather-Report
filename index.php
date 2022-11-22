@@ -4,7 +4,7 @@ require_once "vendor/autoload.php";
 
 use App\ApiClient;
 
-$apiClient = new ApiClient("bc888cebe0b19daf6284e6ed4bd3d141");
+$apiClient = new ApiClient("");
 $city = $_GET["city"] ?? 'Riga';
 $weatherReport = $apiClient->getCityWeather($city);
 $icon = $weatherReport->getIcon();
