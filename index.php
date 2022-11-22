@@ -9,8 +9,8 @@ $city = $_GET["city"] ?? 'Riga';
 $weatherReport = $apiClient->getCityWeather($city);
 $icon = $weatherReport->getIcon();
 
-if(isset($_GET['submit'])){
-  $city=$_GET['city'];
+if (isset($_GET['submit'])) {
+  $city = $_GET['city'];
 }
 ?>
 
@@ -21,25 +21,25 @@ if(isset($_GET['submit'])){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php ?></title>
+    <title>WEATHER FORECAST</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,500,700|Oswald:300,400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="wrapper">
-<div class="form">
-    <form method="get" action="">
-        <label>
-            <input type="text" class="text" placeholder="Enter city name" name="city" value="<?php echo $city?>"/>
-        </label>
-        <input class="form-submit-button" type="submit" value="Submit " name="submit">
-    </form>
-</div>
+    <div class="form">
+        <form method="get" action="">
+            <label>
+                <input type="text" class="text" placeholder="Enter city name" name="city" value="<?php echo $city ?>"/>
+            </label>
+            <input class="form-submit-button" type="submit" value="Submit " name="submit">
+        </form>
+    </div>
     <div class="float-container">
         <img class="icon" src="https://openweathermap.org/img/wn/<?php echo $icon ?>@4x.png" alt="Weather icon"/>
         <p><?php echo $weatherReport->getCity(); ?> </p>
-        <p><?php echo date("F j, Y, g:i a"); ?> </p>
+        <p><?php echo date("F j g:i a"); ?> </p>
     </div>
     <ul class="widget">
         <li>
