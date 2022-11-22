@@ -6,6 +6,7 @@
     },
     "require": {
         "malios/php-to-ascii-table": "^3.0",
-      "ext-readline": "*"
+      "ext-readline": "*",
+      "ext-json": "*"
     }
 }

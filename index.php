@@ -1,26 +1,72 @@
-<?php declare (strict_types = 1);
+<?php declare (strict_types=1);
 
 require_once "vendor/autoload.php";
 
-use App\WeatherData;
-use AsciiTable\Builder;
+use App\ApiClient;
 
-$report = new WeatherData("-", readline("Please enter city name: "));
-$builder = new Builder();
+$apiClient = new ApiClient("bc888cebe0b19daf6284e6ed4bd3d141");
+$city = $_GET["city"] ?? 'Riga';
+$weatherReport = $apiClient->getCityWeather($city);
+$icon = $weatherReport->getIcon();
 
-$builder->addRows([
-  [
-    'Temperature' => round($report->getData()["main"]["temp"])." °C",
-    'Feels like' => round($report->getData()["main"]["feels_like"])." °C",
-    'Max' => round($report->getData()["main"]["temp_max"])." °C",
-    'Min' => round($report->getData()["main"]["temp_min"])." °C",
-    'Sky' => $report->getData()["weather"][0]["description"],
-    'Wind speed' => round($report->getData()["wind"]["speed"])." m/s",
-    'Atmospheric pressure' => $report->getData()["main"]["pressure"]." hPa",
-    'Humidity' => $report->getData()["main"]["humidity"]."%",
-  ]]);
+if(isset($_GET['submit'])){
+  $city=$_GET['city'];
+}
+?>
 
-$builder->setTitle("WEATHER REPORT FOR " . strtoupper($report->getCity() . " " . date('m/d/Y h:i:s a', time())));
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php ?></title>
 
-echo $builder->renderTable();
-echo PHP_EOL;
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,500,700|Oswald:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+<div class="form">
+    <form method="get" action="">
+        <label>
+            <input type="text" class="text" placeholder="Enter city name" name="city" value="<?php echo $city?>"/>
+        </label>
+        <input class="form-submit-button" type="submit" value="Submit " name="submit">
+    </form>
+</div>
+    <div class="float-container">
+        <img class="icon" src="https://openweathermap.org/img/wn/<?php echo $icon ?>@4x.png" alt="Weather icon"/>
+        <p><?php echo $weatherReport->getCity(); ?> </p>
+        <p><?php echo date("F j, Y, g:i a"); ?> </p>
+    </div>
+    <ul class="widget">
+        <li>
+            <span class="category">TEMPERATURE </span>
+            <span class="value"><?php echo $weatherReport->getTemperature() . " °C"; ?></span>
+        </li>
+        <li>
+            <span class="category">FEELS LIKE</span>
+            <span class="value"><?php echo $weatherReport->getfeelsLike() . " °C" ?></span>
+        </li>
+        <li>
+            <span class="category">SKY</span>
+            <span class="value"><?php echo $weatherReport->getSky(); ?></span>
+        </li>
+        <li>
+            <span class="category">WIND SPEED</span>
+            <span class="value"><?php echo $weatherReport->getWindSpeed() . " m/s"; ?></span>
+        </li>
+        <li>
+            <span class="category">ATMOSPHERIC PRESSURE</span>
+            <span class="value"><?php echo $weatherReport->getPressure() . " hPa"; ?></span>
+        </li>
+        <li>
+            <span class="category">HUMIDITY</span>
+            <span class="value"><?php echo $weatherReport->getHumidity() . " %"; ?></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

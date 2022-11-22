@@ -4,13 +4,38 @@ namespace App;
 
 class WeatherData
 {
-  private string $apiKey;
   private string $city;
+  private float $temperature;
+  private float $feelsLike;
+  private float $max;
+  private float $min;
+  private string $sky;
+  private float $windSpeed;
+  private int $pressure;
+  private int $humidity;
+  private string $icon;
 
-  public function __construct(string $apiKey, string $city)
+  public function __construct(string $city,
+                              float $temperature,
+                              float $feelsLike,
+                              float $max,
+                              float $min,
+                              string $sky,
+                              float $windSpeed,
+                              int $pressure,
+                              int $humidity,
+                              string $icon)
   {
-    $this->apiKey = $apiKey;
     $this->city = $city;
+    $this->temperature = $temperature;
+    $this->feelsLike = $feelsLike;
+    $this->max = $max;
+    $this->min = $min;
+    $this->sky = $sky;
+    $this->windSpeed = $windSpeed;
+    $this->pressure = $pressure;
+    $this->humidity = $humidity;
+    $this->icon = $icon;
   }
 
   public function getCity(): string
@@ -18,9 +43,48 @@ class WeatherData
     return $this->city;
   }
 
-  public function getData(): array
+  public function getTemperature(): float
   {
-    $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q={$this->city}&appid={$this->apiKey}&units=metric";
-    return json_decode(file_get_contents($apiUrl), true);
+    return $this->temperature;
+  }
+
+  public function getfeelsLike(): float
+  {
+    return $this->feelsLike;
+  }
+
+  public function getMax(): float
+  {
+    return $this->max;
+  }
+
+  public function getMin(): float
+  {
+    return $this->min;
+  }
+
+  public function getSky(): string
+  {
+    return $this->sky;
+  }
+
+  public function getWindSpeed(): float
+  {
+    return $this->windSpeed;
+  }
+
+  public function getPressure(): int
+  {
+    return $this->pressure;
+  }
+
+  public function getHumidity(): int
+  {
+    return $this->humidity;
+  }
+
+  public function getIcon(): string
+  {
+    return $this->icon;
   }
 }
