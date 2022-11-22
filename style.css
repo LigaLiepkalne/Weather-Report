@@ -33,7 +33,6 @@ body {
     text-align: center;
     color: white;
     font-size: 30px;
-
 }
 
 .float-container .icon {
@@ -81,8 +80,6 @@ ul.widget li {
     display: block;
     font-size: 20px;
     position: absolute;
-
-
 }
 
 .widget .value {
