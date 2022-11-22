@@ -4,7 +4,7 @@ require_once "vendor/autoload.php";
 
 use App\ApiClient;
 
-$apiClient = new ApiClient("");
+$apiClient = new ApiClient("bc888cebe0b19daf6284e6ed4bd3d141");
 $city = $_GET["city"] ?? 'Riga';
 $weatherReport = $apiClient->getCityWeather($city);
 $icon = $weatherReport->getIcon();
@@ -44,11 +44,11 @@ if(isset($_GET['submit'])){
     <ul class="widget">
         <li>
             <span class="category">TEMPERATURE </span>
-            <span class="value"><?php echo $weatherReport->getTemperature() . " °C"; ?></span>
+            <span class="value"><?php echo round($weatherReport->getTemperature()) . " °C"; ?></span>
         </li>
         <li>
             <span class="category">FEELS LIKE</span>
-            <span class="value"><?php echo $weatherReport->getfeelsLike() . " °C" ?></span>
+            <span class="value"><?php echo round($weatherReport->getfeelsLike()) . " °C" ?></span>
         </li>
         <li>
             <span class="category">SKY</span>
@@ -56,15 +56,15 @@ if(isset($_GET['submit'])){
         </li>
         <li>
             <span class="category">WIND SPEED</span>
-            <span class="value"><?php echo $weatherReport->getWindSpeed() . " m/s"; ?></span>
+            <span class="value"><?php echo round($weatherReport->getWindSpeed()) . " m/s"; ?></span>
         </li>
         <li>
-            <span class="category">ATMOSPHERIC PRESSURE</span>
+            <span class="category">PRESSURE</span>
             <span class="value"><?php echo $weatherReport->getPressure() . " hPa"; ?></span>
         </li>
         <li>
             <span class="category">HUMIDITY</span>
-            <span class="value"><?php echo $weatherReport->getHumidity() . " %"; ?></span>
+            <span class="value"><?php echo $weatherReport->getHumidity() . "%"; ?></span>
         </li>
     </ul>
 </div>

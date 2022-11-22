@@ -60,7 +60,7 @@ ul.widget {
     padding: 25px;
     background: rgb(4,8,15);
     background: linear-gradient(90deg, rgba(4,8,15,1) 15%, rgba(49,62,76,1) 46%, rgba(194,158,89,1) 100%, rgba(39,71,115,1) 100%);
-    width: 500px;
+    width: 450px;
     height: 400px;
 }
 
@@ -81,8 +81,8 @@ ul.widget li {
     display: block;
     font-size: 20px;
     position: absolute;
-    width: 40px;
-    height: 40px;
+
+
 }
 
 .widget .value {
