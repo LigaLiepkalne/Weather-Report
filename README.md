@@ -5,4 +5,4 @@
 ### ![image](https://user-images.githubusercontent.com/110776571/202899452-77e92df4-9477-4b46-8a07-5aed35a47c4b.png)
 
 ## Browser
-![image](https://user-images.githubusercontent.com/110776571/203437465-ab8dd02d-70de-43c9-8554-e70e41fda5bc.png)
+![image](https://user-images.githubusercontent.com/110776571/203541672-865004d1-c22d-47c1-b99e-3b4e9efefc8f.png)
