@@ -9,9 +9,9 @@ body {
 .form {
     align-content: end;
     height: 10%;
-    top: 720px;
-    right: 230px;
-    position: relative;
+    top: 1195px;
+    right: 1140px;
+    position: absolute;
     font-size: 30px;
     width: 500px;
 }
@@ -34,20 +34,19 @@ body {
 }
 
 .text {
-    position: relative;
+    position: absolute;
     left: 180px;
-    bottom: 44px;
+    bottom: 420px;
+    width: 300px;
 }
 
 .float-container .icon {
     width: 200px;
     height: 200px;
-    float: left;
-    position: absolute;
-    bottom: 0;
-    top: 110px;
-    right: 110px;
-    z-index: 100 !important;
+    position: absolute;;
+    top: 130px;
+    left: -13px;
+
 }
 
 .widget {
@@ -60,7 +59,6 @@ body {
     width: 500px;
     transform: translate(-50%, -50%);
     flex-wrap: wrap;
-    cursor: pointer;
     border-radius: 20px;
     box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
 }
@@ -106,8 +104,8 @@ ul.widget li {
     border: 1px solid #eee;
     border-radius: 20px;
     text-shadow: none;
-    bottom: 45px;
-    left: 560px;
+    bottom: 420px;
+    left: 500px;
     position: absolute;
 }
 
