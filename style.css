@@ -7,17 +7,13 @@ body {
 }
 
 .form {
-    height: 60%;
-    left: 700px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    position: fixed;
-    align-items: center;
-    justify-content: space-around;
-    margin-bottom: 700px;
-    margin-left: 420px;
-    text-align: center;
+    align-content: end;
+    height: 10%;
+    top: 720px;
+    right: 230px;
+    position: relative;
     font-size: 30px;
+    width: 500px;
 }
 
 .float-container {
@@ -29,14 +25,29 @@ body {
     align-items: center;
     justify-content: space-around;
     margin-top: 230px;
-    text-align: center;
+    text-align: left;
     color: #a4a291;
     font-size: 30px;
+    position: absolute;
+    bottom: 400px;
+    z-index: 50 !important;
+}
+
+.text {
+    position: relative;
+    left: 180px;
+    bottom: 44px;
 }
 
 .float-container .icon {
     width: 200px;
     height: 200px;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    top: 110px;
+    right: 110px;
+    z-index: 100 !important;
 }
 
 .widget {
@@ -94,8 +105,10 @@ ul.widget li {
     color: #fff;
     border: 1px solid #eee;
     border-radius: 20px;
-
     text-shadow: none;
+    bottom: 45px;
+    left: 560px;
+    position: absolute;
 }
 
 .form-submit-button:hover {

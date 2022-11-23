@@ -31,15 +31,17 @@ if (isset($_GET['submit'])) {
     <div class="form">
         <form method="get" action="">
             <label>
-                <input type="text" class="text" placeholder="Enter city name" name="city" value="<?php echo $city ?>"/>
+                <input type="text" class="text" placeholder="Enter city name" name="city" required value="<?php echo $city ?>"/>
             </label>
-            <input class="form-submit-button" type="submit" value="Submit " name="submit">
+            <input class="form-submit-button" type="submit" value="Submit " name="submit" required>
         </form>
     </div>
     <div class="float-container">
         <img class="icon" src="https://openweathermap.org/img/wn/<?php echo $icon ?>@4x.png" alt="Weather icon"/>
+        <div class="text">
         <p><?php echo $weatherReport->getCity(); ?> </p>
         <p><?php echo date("F j g:i a"); ?> </p>
+            </div>
     </div>
     <ul class="widget">
         <li>
